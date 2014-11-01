@@ -8,12 +8,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">Awesome App</a>
+          <%= link_to 'Awesome App', root_path, :class => "navbar-brand" %>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to 'About', static_pages_about_path %></li>
+            <li><%= link_to 'About', about_path %></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
