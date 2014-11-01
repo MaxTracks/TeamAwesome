@@ -8,11 +8,15 @@
 </head>
 <body>
 
-<%= render "includes/navbar"%>
+  <%= render "includes/navbar"%>
+  
+  <% flash.each do |message_type, message| %>
+    <div class="alert alert-<%= message_type %>"><%= message %></div>
+  <% end %>
 
-<%= yield %>
+  <%= yield %>
 
-<%= render "includes/footer"%>
+  <%= render "includes/footer"%>
 
 </body>
 </html>
