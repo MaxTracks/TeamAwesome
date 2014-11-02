@@ -23,6 +23,7 @@
       }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.css"/>
     <script>
 var directionsDisplay;
 var directionsService = new google.maps.DirectionsService();
@@ -30,9 +31,9 @@ var map;
 
 function initialize() {
   directionsDisplay = new google.maps.DirectionsRenderer();
-  var chicago = new google.maps.LatLng(41.850033, -87.6500523);
+  var chicago = new google.maps.LatLng(42.088500, -75.968040);
   var mapOptions = {
-    zoom: 6,
+    zoom: 10,
     center: chicago
   }
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -81,32 +82,44 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
     </script>
   </head>
-  <body>
+  <body style="background: url('background.jpg') no-repeat center center;background-attachment: fixed;">x
+  </div class="form-group">
     <div id="map-canvas" style="float:left;width:70%;height:100%;"></div>
     <div id="control_panel" style="float:right;width:30%;text-align:left;padding-top:20px">
     <div style="margin:20px;border-width:2px;">
+      <h2> Path of a Salesman</h2>
     <b>Start:</b>
-    <select id="start">
+    <select id="start" class="form-control">
       <option value="3 Otseningo St, Binghamton, NY">Broome County Council of Churches</option>
       <option value="53 Davis St., Binghamton">53 Davis St., Binghamton</option>
       <option value="3630 Leonard Dr., Endicott">3630 Leonard Dr., Endicott</option>
       <option value="10 N. Wisconsin Dr., Chenango Bridge">10 N. Wisconsin Dr., Chenango Bridge</option>
       <option value="258 Loretta Lane, Vestal">258 Loretta Lane, Vestal</option>
       <option value="119 Carlin Rd, Conklin">119 Carlin Rd, Conklin</option>
+      <option value="Park Terrace Food Pantry">Park Terrace Food Pantry</option>
+      <option value="St. Cyril and Methodist">St. Cyril and Methodist</option>
+      <option value="Valley Christian Reformed">Valley Christian Reformed</option>
+      <option value="St. Paul's Episcopal">St. Paul's Episcopal</option>
+      <option value="Windsor United Methodist Church">Windsor United Methodist Church</option>
     </select>
     <br>
     <b>Waypoints:</b> <br>
     <i>(Ctrl-Click for multiple selection)</i> <br>
-    <select multiple id="waypoints">
+    <select multiple id="waypoints" class="form-control">
       <option value="53 Davis St., Binghamton">53 Davis St., Binghamton</option>
       <option value="3630 Leonard Dr., Endicott">3630 Leonard Dr., Endicott</option>
       <option value="10 N. Wisconsin Dr., Chenango Bridge">10 N. Wisconsin Dr., Chenango Bridge</option>
       <option value="258 Loretta Lane, Vestal">258 Loretta Lane, Vestal</option>
       <option value="119 Carlin Rd, Conklin">119 Carlin Rd, Conklin</option>
+      <option value="Park Terrace Food Pantry">Park Terrace Food Pantry</option>
+      <option value="St. Cyril and Methodist">St. Cyril and Methodist</option>
+      <option value="Valley Christian Reformed">Valley Christian Reformed</option>
+      <option value="St. Paul's Episcopal">St. Paul's Episcopal</option>
+      <option value="Windsor United Methodist Church">Windsor United Methodist Church</option>
     </select>
     <br>
     <b>End:</b>
-    <select id="end">
+    <select id="end" class="form-control">
       <option value="30 Glann Rd, Apalachin, NY 13732">Park Terrace Food Pantry</option>
       <option value="148 Clinton St, Binghamton, NY 13905">St. Cyril and Methodist</option>
       <option value="1452 River Rd, Binghamton, NY 13901">Valley Christian Reformed</option>
@@ -117,11 +130,17 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <option value="10 N. Wisconsin Dr., Chenango Bridge">10 N. Wisconsin Dr., Chenango Bridge</option>
       <option value="258 Loretta Lane, Vestal">258 Loretta Lane, Vestal</option>
       <option value="119 Carlin Rd, Conklin">119 Carlin Rd, Conklin</option>
+      <option value="Park Terrace Food Pantry">Park Terrace Food Pantry</option>
+      <option value="St. Cyril and Methodist">St. Cyril and Methodist</option>
+      <option value="Valley Christian Reformed">Valley Christian Reformed</option>
+      <option value="St. Paul's Episcopal">St. Paul's Episcopal</option>
+      <option value="Windsor United Methodist Church">Windsor United Methodist Church</option>
     </select>
     <br>
-      <input type="submit" onclick="calcRoute();">
+      <input class="form-control btn btn-default" type="submit" onclick="calcRoute();">
     </div>
     <div id="directions_panel" style="margin:20px;background-color:#FFEE77;"></div>
-    </div>
+</div>
+</div>
   </body>
 </html>
