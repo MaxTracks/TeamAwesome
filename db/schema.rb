@@ -11,7 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141101205925) do
+ActiveRecord::Schema.define(version: 20141102042914) do
+
+  create_table "dropoff_locations", force: true do |t|
+    t.string   "location"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "details"
+    t.string   "items"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pickup_locations", force: true do |t|
+    t.string   "location"
+    t.string   "latitude"
+    t.string   "longitude"
+    t.string   "details"
+    t.string   "items"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

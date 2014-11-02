@@ -1,5 +1,11 @@
 <div class="row">
   <div class="col-md-12">
-    <%= @user.name %>, <%= @user.email %>
+    <h2> Welcome, <%= @user.name %>!</h2><br>
+  </div>
+
+  <div class="col-md-12">
+    <%= link_to "Calculate a drop off route!", dropoff_locations_path %>
+    <br><br>
+    <%= link_to "Calculate a pickup route!", pickup_locations_path %>
   </div>
 </div>

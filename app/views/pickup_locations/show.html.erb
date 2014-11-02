@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @pickup_location.location %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @pickup_location.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @pickup_location.longitude %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @pickup_location.details %>
+</p>
+
+<p>
+  <strong>Items:</strong>
+  <%= @pickup_location.items %>
+</p>
+
+<%= link_to 'Edit', edit_pickup_location_path(@pickup_location) %> |
+<%= link_to 'Back', pickup_locations_path %>

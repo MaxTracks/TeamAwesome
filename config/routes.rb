@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :pickup_locations
+
+  resources :dropoff_locations
+
   get 'sessions/new'
 
   root 'static_pages#home'
