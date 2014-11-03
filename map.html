@@ -23,72 +23,28 @@
       }
     </style>
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+	<script src="jquery-1.11.1.min.js"></script>
+	<script src="tspSolver.js"></script>
     <link rel="stylesheet" type="text/css" href="dist/css/bootstrap.css"/>
-    <script>
-var directionsDisplay;
-var directionsService = new google.maps.DirectionsService();
-var map;
+    <link rel="stylesheet" type="text/css" href="teamAwesome.css"/>
 
-function initialize() {
-  directionsDisplay = new google.maps.DirectionsRenderer();
-  var chicago = new google.maps.LatLng(42.088500, -75.968040);
-  var mapOptions = {
-    zoom: 10,
-    center: chicago
-  }
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  directionsDisplay.setMap(map);
-}
-
-function calcRoute() {
-  var start = document.getElementById('start').value;
-  var end = document.getElementById('end').value;
-  var waypts = [];
-  var checkboxArray = document.getElementById('waypoints');
-  for (var i = 0; i < checkboxArray.length; i++) {
-    if (checkboxArray.options[i].selected == true) {
-      waypts.push({
-          location:checkboxArray[i].value,
-          stopover:true});
-    }
-  }
-
-  var request = {
-      origin: start,
-      destination: end,
-      waypoints: waypts,
-      optimizeWaypoints: true,
-      travelMode: google.maps.TravelMode.DRIVING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-      var route = response.routes[0];
-      var summaryPanel = document.getElementById('directions_panel');
-      summaryPanel.innerHTML = '';
-      // For each route, display summary information.
-      for (var i = 0; i < route.legs.length; i++) {
-        var routeSegment = i + 1;
-        summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment + '</b><br>';
-        summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
-        summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
-        summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
-      }
-    }
-  });
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
-    </script>
   </head>
-  <body style="background: url('background.jpg') no-repeat center center;background-attachment: fixed;">x
+  <body style="background: url('background.jpg') no-repeat center center;background-attachment: fixed;">
   </div class="form-group">
-    <div id="map-canvas" style="float:left;width:70%;height:100%;"></div>
-    <div id="control_panel" style="float:right;width:30%;text-align:left;padding-top:20px">
+  
+  <!--<div id="map-canvas" style="float:left;width:70%;height:70%;padding-top:20px"></div>-->
+	
+	<div id="map-canvas" class="map-canvas mapCircle" style="float:left;width:70%;height:100%;position: relative; background-color: transparent; overflow: hidden;">
+		<div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%; z-index: 0;">
+			<div style="position: absolute; left: 0px; top: 0px; overflow: hidden; width: 100%; height: 100%;">
+			</div>
+		</div>
+	</div>
+	
+    <div id="control_panel" style="float:right;width:30%;text-align:left;">
     <div style="margin:20px;border-width:2px;">
-      <h2> Path of a Salesman</h2>
-    <b>Start:</b>
+    <h2> Path of a Salesman</h2>
+    <label>Start:</label>
     <select id="start" class="form-control">
       <option value="3 Otseningo St, Binghamton, NY">Broome County Council of Churches</option>
       <option value="53 Davis St., Binghamton">53 Davis St., Binghamton</option>
@@ -98,7 +54,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <option value="119 Carlin Rd, Conklin">119 Carlin Rd, Conklin</option>
     </select>
     <br>
-    <b>Waypoints:</b> <br>
+    <label>Waypoints:</label> <br>
     <i>(Ctrl-Click for multiple selection)</i> <br>
     <select multiple id="waypoints" class="form-control">
       <option value="53 Davis St., Binghamton">53 Davis St., Binghamton</option>
@@ -108,7 +64,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
       <option value="119 Carlin Rd, Conklin">119 Carlin Rd, Conklin</option>
     </select>
     <br>
-    <b>End:</b>
+    <label>End:</label>
     <select id="end" class="form-control">
       <option value="30 Glann Rd, Apalachin, NY 13732">Park Terrace Food Pantry</option>
       <option value="148 Clinton St, Binghamton, NY 13905">St. Cyril and Methodist</option>
@@ -124,8 +80,8 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <br>
       <input class="form-control btn btn-default" type="submit" onclick="calcRoute();">
     </div>
-    <div id="directions_panel" style="margin:20px;background-color:#FFEE77;"></div>
-</div>
-</div>
-  </body>
+    <div id="directions_panel" style="margin:20px;background-color:gray;color:white;"></div>
+			</div>
+		</div>
+	</body>
 </html>

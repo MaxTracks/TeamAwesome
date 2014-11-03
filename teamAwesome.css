@@ -1,0 +1,9 @@
+.map-canvas.mapCircle {
+    width: 476px;
+    height: 476px;
+}
+.mapCircle>div>div:first-child {
+    -moz-border-radius: 238px;
+    -webkit-border-radius: 238px;
+    border-radius: 238px;
+}

@@ -1,0 +1,5 @@
+ - organize div containers for clean mobile view
+ - custom input for start, end, waypoints
+ - add more waypoints with jquery
+ - upper and lower padding for map
+ - fix google map hud?
